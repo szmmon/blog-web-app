@@ -19,7 +19,7 @@
                         {{ user.email }}
                     </Link>
                     <div class="button-primary">
-                        <Link href="/">Add post</Link>
+                        <Link :href="route('blog-post.create')">Add post</Link>
                     </div>
                     <div>
                         <Link :href="route('logout')" method="delete" as="button"> Logout </Link>
