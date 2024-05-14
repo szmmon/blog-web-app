@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('listing.index'));
+        return redirect()->intended(route('index'))->with('success', 'Logged in ');
     }
 
     public function destroy(Request $request){
@@ -36,6 +36,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('listing.index');
+        return redirect()->route('index');
     }
 }
