@@ -16,7 +16,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return inertia('Posts/Create');
+        return inertia('Posts/Index',
+        ['blogPosts' => Post::all(),
+        ]
+        );
     }
 
     /**
@@ -42,7 +45,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return inertia(
+            'Posts/Show',
+            ['owner' => $post->load('owner'),
+            'post' => $post]
+        );
     }
 
     /**

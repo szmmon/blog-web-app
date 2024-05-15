@@ -14,4 +14,4 @@ Route::delete('logout', [AuthController::class, 'destroy'])->name('logout');
 
 Route::resource('user-account', UserAccountController::class)->only(['create', 'store']);
 
-Route::resource('blog-post', PostController::class)->only(['index', 'create', 'store'])->middleware('auth');
+Route::resource('blog-post', PostController::class)->only(['index', 'create', 'store', 'show'])->middleware('auth');
