@@ -1,13 +1,11 @@
 <template>
     <header class="border-b  bg-slate-300 dark:border-gray-700 dark:bg-cyan-950 w-full">
-        <div class="container mx-auto">
+        <div class="container mx-auto ">
             <nav class="p-4 flex items-center justify-between">
-                <div class="font-medium text-lg dark:text-gray-100">
-                    <Link href="/">All posts</Link>
+                <div class="font-medium sm:text-sm md:text-lg dark:text-gray-100">
+                    <Link :href="route('blog-post.index')">All posts</Link>
                 </div>
-                <div class="font-medium text-amber-500 dark:text-amber-400 text-xl text-center bold">
-                    <Link href="/">App</Link>
-                </div>
+                
                 <div class="flex items-center gap-4 dark:text-gray-100">
                     <button @click="toggleDark()">
                     <i v-if="!isDark" class="fa-regular fa-moon font-medium"></i>  
@@ -21,7 +19,7 @@
                     <div class="button-primary">
                         <Link :href="route('blog-post.create')">Add post</Link>
                     </div>
-                    <div>
+                    <div class="sm:text-sm md:text-lg">
                         <Link :href="route('logout')" method="delete" as="button"> Logout </Link>
                     </div>
                 </div>

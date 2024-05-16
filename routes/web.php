@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserAccountController;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +16,5 @@ Route::delete('logout', [AuthController::class, 'destroy'])->name('logout');
 Route::resource('user-account', UserAccountController::class)->only(['create', 'store']);
 
 Route::resource('blog-post', PostController::class)->only(['index', 'create', 'store', 'show'])->middleware('auth');
+
+Route::post('blog-post-comment', [PostCommentController::class, 'store'])->name('comment.store')->middleware('auth');

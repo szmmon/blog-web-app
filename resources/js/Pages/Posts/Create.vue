@@ -1,6 +1,6 @@
 <template>
 <form @submit.prevent="blogPostStore">
-    <div class="mx-auto w-1/2 border-gray-500 bg-slate-300 dark:bg-gray-700 pt-4 px-10 pb-6 rounded-md">
+    <div class="mx-auto sm:w-3/4 md:w-1/2 border-gray-500 bg-slate-300 dark:bg-gray-700 pt-4 px-10 pb-6 rounded-md">
         <div>
             <label class="label" for="title">Title</label>
             <input type="text" id="title" class="input" placeholder="Input post title" v-model="form.title"/>

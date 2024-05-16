@@ -43,12 +43,12 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
+    public function show(Post $blog_post)
     {
         return inertia(
             'Posts/Show',
-            ['owner' => $post->load('owner'),
-            'post' => $post]
+            ['post' => $blog_post,
+            'owner' => $blog_post->load('owner')]
         );
     }
 

@@ -7,20 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Post extends Model
+class PostComment extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'title',
-        'body',
+        'body'
     ];
 
-
-    public function owner(): BelongsTo{
+    public function blogPost():BelongsTo{
+        return $this->belongsTo(Post::class, 'post_id');
+    }
+    public function commentOwner():BelongsTo{
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function comments(): HasMany{
-        return $this->hasMany(PostComment::class, 'post_id');
-    }
+    
+
+    use HasFactory;
 }
