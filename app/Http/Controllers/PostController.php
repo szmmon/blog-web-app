@@ -48,7 +48,8 @@ class PostController extends Controller
         return inertia(
             'Posts/Show',
             ['post' => $blog_post,
-            'owner' => $blog_post->load('owner')]
+            'owner' => $blog_post->load('owner'),
+            'comments' => $blog_post->load('comments')]
         );
     }
 

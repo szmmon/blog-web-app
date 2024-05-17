@@ -10,7 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class PostComment extends Model
 {
     protected $fillable = [
-        'body'
+        'body',
+        'post_id'
     ];
 
     public function blogPost():BelongsTo{
