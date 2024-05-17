@@ -12,7 +12,30 @@ class UserAccountController extends Controller
 {
 
     public function index(){
-        return Inertia('UserAccount/Index')
+        return inertia('UserAccount/Index',
+        ['users' => User::all()]);
+    }
+
+    public function edit(User $user_account){
+        return inertia('UserAccount/Edit',
+        ['user' => $user_account]
+        );
+    }
+    public function update(Request $request, User $user_account){
+        $user_account->update(
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+            ])
+        );
+        return redirect()->route('user-account.index')->with('success', 'Account edited');
+    }
+
+    public function destroy(User $user_account)
+    {
+        $user_account->deleteOrFail();
+        
+        return redirect()->back()->with('success', 'User was deleted');
     }
 
 

@@ -13,9 +13,10 @@
                     </button>
                 
                 <div v-if="user" class="flex items-center gap-4 dark:text-gray-100">
-                    <Link href="/"  class="text-sm text-gray-400" >
-                        {{ user.email }}
-                    </Link>
+                    <div   class="text-sm text-gray-400" >
+                        {{ user.email }} <span v-if="user.is_admin">(admin)</span>
+                    </div>
+                    <Link v-if="user.is_admin" :href="route('user-account.index')" class="sm:text-sm md:text-lg">Users list</Link>
                     <div class="button-primary">
                         <Link :href="route('blog-post.create')">Add post</Link>
                     </div>
@@ -36,7 +37,7 @@
         <div v-if="flashSuccess" class="mb-4 border rounded-md shadow-sm border-green-400 dark:border-green-600 bg-green-400 dark:bg-green-600 p-2">
             {{ flashSuccess }}
         </div>
-        <slot>default</slot>
+        <slot >default</slot>
     </main>
 </template>
 

@@ -1,10 +1,10 @@
 <template>
-    <div class="border border-gray-400 dark:border-gray-900 rounded-md p-4 shadow-sm  text-gray-500 dark:text-gray-300" >
-            <div class="border-b border-gray-200 dark:border-gray-700">
-                <Link :href="route('blog-post.show', { blog_post : blogPost.id })" class="text-lg text-bold p-1 px-3 font-bold hover:cursor-pointer text-gray-800">
+    <div class="border border-gray-400 dark:border-gray-700 rounded-md p-4 shadow-sm  text-gray-500 dark:text-gray-300 dark:bg-gray-600" >
+            <div class="border-b border-gray-300 dark:border-gray-700">
+                <Link :href="route('blog-post.show', { blog_post : blogPost.id })" class="text-lg text-bold p-1 px-3 font-semibold hover:cursor-pointer text-gray-800 dark:text-gray-300">
                     {{ blogPost.title }}
                 </Link>
-            <div v-if="blogPost.owner" class="border-t border-gray-200 dark:border-gray-700">
+            <div v-if="blogPost.owner" class="border-t border-gray-300 dark:border-gray-700">
                 <div class="text-md p-1 px-5 text-gray-600 dark:text-gray-400">{{ blogPost.body }}
                 </div>
             </div>
