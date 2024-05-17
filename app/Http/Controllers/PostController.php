@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         return inertia('Posts/Index',
-        ['blogPosts' => Post::all(),
+        ['blogPosts' => Post::withCount('comments')->get(),
         ]
         );
     }
@@ -47,7 +47,7 @@ class PostController extends Controller
     {
         return inertia(
             'Posts/Show',
-            ['post' => $blog_post,
+            ['post' => $blog_post->load('comments'),
             'owner' => $blog_post->load('owner'),
             'comments' => $blog_post->load('comments')]
         );

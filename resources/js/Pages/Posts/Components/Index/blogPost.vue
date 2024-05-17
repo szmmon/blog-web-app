@@ -13,7 +13,7 @@
                 <div>ID: {{ blogPost.id }}</div>
                 <div>Created at: {{ date }}  </div>
                 <div v-if="blogPost.owner">Author: {{ blogPost.owner.name }}  </div>
-                <div>Comments()</div>
+                <div v-if="blogPost.comments_count">Comments({{ blogPost.comments_count }})</div>
             </div>
     </div>
 </template>

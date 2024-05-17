@@ -5,12 +5,12 @@
                     {{ comment.body }}
                 </div>
             </div>
-            <div class="flex items-center justify-between">
-                <div class="flex items-center justify-start gap-2">
+            <div :class="{'justify-between flex items-center': comment.user_id == user.id ||user.is_admin }">
+                <div v-if="comment.user_id == user.id ||user.is_admin" class="flex items-center justify-start gap-2">
                     <Link  :href="route('comment.edit', { comment : comment })" class="border-gray-300 bg-gray-200 font-extralight rounded-md py-1 px-2 mt-1 hover:cursor-pointer hover:bg-gray-300 text-sm"><i class="fa-regular fa-pen-to-square"></i></Link>
                     <Link as="button" method="delete"  :href="route('comment.delete', { comment : comment })" class="border-gray-300 bg-gray-200 font-extralight rounded-md py-1 px-2 mt-1 hover:cursor-pointer hover:bg-gray-300 text-sm"><i class="fa-regular fa-trash-can"></i></Link>
                 </div>
-                <div class="flex items-center justify-end gap-2 text-xs" >
+                <div class="flex items-center gap-2 text-xs justify-end" >
                     <div>ID: {{ comment.id }}</div>
                     <div>Created at: {{ date }}  </div>
                     <div >Author: {{ comment.user_id }}  </div>
@@ -20,11 +20,13 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { Link } from '@inertiajs/vue3'
+import { ref, computed } from "vue";
+import { Link, usePage } from "@inertiajs/vue3";
 
 const props = defineProps({
     comment: Object,
 });
+const page = usePage();
+const user = computed(() => page.props.user);
 const date = computed( () => new Date(props.comment.created_at).toDateString())
 </script>

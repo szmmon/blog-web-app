@@ -4,7 +4,7 @@
         <BlogPost :blog-post="post"></BlogPost>
         <div v-if="hasComments" class="mt-3">
             <div class="mt-2 mb-1 font-bold text-xl">Comments:</div>
-            <Comment v-for="comment in post.comments" :key="comment.id" :comment="comment"/>
+            <Comment v-for="comment in post.comments" :key="comment.id" :comment="comment" class="mb-3"/>
         </div>
         <div v-else class="mt-3">
             <div class="mt-2 mb-1 font-bold text-xl">No comments yet</div>

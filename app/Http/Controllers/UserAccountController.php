@@ -6,9 +6,16 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia;
 
 class UserAccountController extends Controller
 {
+
+    public function index(){
+        return Inertia('UserAccount/Index')
+    }
+
+
     public function create(){
         return inertia('UserAccount/Create');
     }
