@@ -35,4 +35,11 @@ class PostCommentController extends Controller
         return redirect()->route('blog-post.show', $request->post_id)->with('success', 'Comment edited');
 
     }
+
+    public function destroy(PostComment $comment)
+    {
+        $comment->deleteOrFail();
+        
+        return redirect()->back()->with('success', 'Comment was deleted');
+    }
 }

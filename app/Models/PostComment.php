@@ -20,7 +20,6 @@ class PostComment extends Model
     public function commentOwner():BelongsTo{
         return $this->belongsTo(User::class, 'user_id');
     }
-    
 
     use HasFactory;
 }

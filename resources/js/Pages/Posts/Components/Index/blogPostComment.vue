@@ -8,7 +8,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start gap-2">
                     <Link  :href="route('comment.edit', { comment : comment })" class="border-gray-300 bg-gray-200 font-extralight rounded-md py-1 px-2 mt-1 hover:cursor-pointer hover:bg-gray-300 text-sm"><i class="fa-regular fa-pen-to-square"></i></Link>
-                    <Link :href="route('comment.delete', { comment : comment })" class="border-gray-300 bg-gray-200 font-extralight rounded-md py-1 px-2 mt-1 hover:cursor-pointer hover:bg-gray-300 text-sm"><i class="fa-regular fa-trash-can"></i></Link>
+                    <Link as="button" method="delete"  :href="route('comment.delete', { comment : comment })" class="border-gray-300 bg-gray-200 font-extralight rounded-md py-1 px-2 mt-1 hover:cursor-pointer hover:bg-gray-300 text-sm"><i class="fa-regular fa-trash-can"></i></Link>
                 </div>
                 <div class="flex items-center justify-end gap-2 text-xs" >
                     <div>ID: {{ comment.id }}</div>

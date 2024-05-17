@@ -20,4 +20,4 @@ Route::resource('blog-post', PostController::class)->only(['index', 'create', 's
 Route::post('blog-post-comment', [PostCommentController::class, 'store'])->name('comment.store')->middleware('auth');
 Route::get('blog-post-comment/edit/{comment}', [PostCommentController::class, 'edit'])->name('comment.edit')->middleware('auth');
 Route::post('blog-post-comment/{comment}', [PostCommentController::class, 'update'])->name('comment.update')->middleware('auth');
-Route::delete('blog-post-comment/destroy/{comment}', [PostCommentController::class, 'destroy'])->name('comment.delete')->middleware('auth');
+Route::delete('blog-post-comment/{comment}', [PostCommentController::class, 'destroy'])->name('comment.delete')->middleware('auth');
