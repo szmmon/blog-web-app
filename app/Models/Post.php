@@ -23,4 +23,7 @@ class Post extends Model
     public function comments(): HasMany{
         return $this->hasMany(PostComment::class, 'post_id');
     }
+    public function images(): HasMany{
+        return $this->hasMany(PostImage::class);
+    }
 }

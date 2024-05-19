@@ -26,9 +26,12 @@
                     <span v-if="user.is_admin == 'Admin'">Admin</span>
                     <span v-else>User</span>
                 </td>
-                <td class="flex justify-end px-6 py-4 text-right gap-2">
+                <td v-if="user.name != 'admin'" class="flex justify-end px-6 py-4 text-right gap-2">
                     <a :href="route('user-account.edit', {user_account: user})" class="font-medium text-lg text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-regular fa-pen-to-square"></i></a>
                     <Link as="button" :href="route('user-account.destroy', {user_account: user})" method="delete" class="font-medium text-lg text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-regular fa-trash-can"></i></Link>
+                </td>
+                <td v-else class="flex justify-end px-6 py-4 text-right gap-2">
+                    
                 </td>
                 
             </tr>

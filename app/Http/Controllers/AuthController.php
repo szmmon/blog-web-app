@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('index'))->with('success', 'Logged in ');
+        return redirect()->intended(route('blog-post.index'))->with('success', 'Logged in ');
     }
 
     public function destroy(Request $request){

@@ -25,5 +25,5 @@ import { Link } from '@inertiajs/vue3'
 const props = defineProps({
     blogPost: Object,
 });
-const date = computed( () => new Date(props.blogPost.created_at).toDateString())
+const date = computed( () => new Date(props.blogPost.created_at).toLocaleString())
 </script>

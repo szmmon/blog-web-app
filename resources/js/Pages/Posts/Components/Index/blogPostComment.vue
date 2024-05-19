@@ -11,9 +11,9 @@
                     <Link as="button" method="delete"  :href="route('comment.delete', { comment : comment })" class="border-gray-300 bg-gray-200 font-extralight rounded-md py-1 px-2 mt-1 hover:cursor-pointer hover:bg-gray-300 text-sm"><i class="fa-regular fa-trash-can"></i></Link>
                 </div>
                 <div class="flex items-center gap-2 text-xs justify-end" >
-                    <div>ID: {{ comment.id }}</div>
+                    <div>Comment ID: {{ comment.id }}</div>
                     <div>Created at: {{ date }}  </div>
-                    <div >Author: {{ comment.user_id }}  </div>
+                    <div >Author ID: {{ comment.id }}  </div>
                 </div>
             </div>
     </div>
@@ -28,5 +28,5 @@ const props = defineProps({
 });
 const page = usePage();
 const user = computed(() => page.props.user);
-const date = computed( () => new Date(props.comment.created_at).toDateString())
+const date = computed( () => new Date(props.comment.created_at).toLocaleString())
 </script>

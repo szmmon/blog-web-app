@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostImageController;
 use App\Http\Controllers\UserAccountController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,8 @@ Route::post('blog-post-comment', [PostCommentController::class, 'store'])->name(
 Route::get('blog-post-comment/edit/{comment}', [PostCommentController::class, 'edit'])->name('comment.edit')->middleware('auth');
 Route::post('blog-post-comment/{comment}', [PostCommentController::class, 'update'])->name('comment.update')->middleware('auth');
 Route::delete('blog-post-comment/{comment}', [PostCommentController::class, 'destroy'])->name('comment.delete')->middleware('auth');
+
+
+Route::get('blog-post/{blog_post}/image' , [PostImageController::class, 'create'])->name('blog-post.image.create');
+Route::post('blog-post/{blog_post}/image' , [PostImageController::class, 'store'])->name('blog-post.image.store');
+Route::delete('blog-post/{blog_post}/{image}' , [PostImageController::class, 'destroy'])->name('blog-post.image.destroy');

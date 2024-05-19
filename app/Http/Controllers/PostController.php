@@ -37,7 +37,7 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         Auth::user()->blogPosts()->create($request->validated());
-        return redirect()->route('index')->with('success', 'Post created');
+        return redirect()->route('blog-post.index')->with('success', 'Post created');
     }
 
     /**
@@ -45,6 +45,7 @@ class PostController extends Controller
      */
     public function show(Post $blog_post)
     {
+        $blog_post->load(['images']);
         return inertia(
             'Posts/Show',
             ['post' => $blog_post->load('comments'),

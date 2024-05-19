@@ -13,19 +13,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_comments', function (Blueprint $table) {
+        Schema::create('post_images', function (Blueprint $table) {
             $table->id();
-            $table->string('body');
-            $table->foreignIdFor(
-                User::class,
-                'user_id'
-            )->constrained('users')
-            ->onDelete('cascade');
-            $table->foreignIdFor(
-                Post::class
-            )->constrained('posts')
-            ->onDelete('cascade');
             $table->timestamps();
+
+            $table->string('filename');
+            $table->foreignIdFor(Post::class, 'post_id')->constrained('posts')->onDelete('cascade');
         });
     }
 
@@ -34,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_comments');
+        Schema::dropIfExists('post_images');
     }
 };
