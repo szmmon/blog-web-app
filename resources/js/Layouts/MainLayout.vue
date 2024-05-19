@@ -14,9 +14,9 @@
                 
                 <div v-if="user" class="flex items-center gap-4 dark:text-gray-100">
                     <div   class="text-sm text-gray-400" >
-                        {{ user.email }} <span v-if="user.is_admin">(admin)</span>
+                        {{ user.email }} <span v-if="user.is_admin == 'Admin'">(admin)</span>
                     </div>
-                    <Link v-if="user.is_admin" :href="route('user-account.index')" class="sm:text-sm md:text-lg">Users list</Link>
+                    <Link v-if="user.is_admin == 'Admin'" :href="route('user-account.index')" class="sm:text-sm md:text-lg">Users list</Link>
                     <div class="button-primary">
                         <Link :href="route('blog-post.create')">Add post</Link>
                     </div>

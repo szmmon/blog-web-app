@@ -25,8 +25,9 @@ class UserAccountController extends Controller
         $user_account->update(
             $request->validate([
                 'name' => 'required',
+                'is_admin' => 'required',
                 'email' => 'required|email',
-            ])
+            ]),
         );
         return redirect()->route('user-account.index')->with('success', 'Account edited');
     }

@@ -13,7 +13,8 @@ Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login', [AuthController::class, 'store'])->name('login.store');
 Route::delete('logout', [AuthController::class, 'destroy'])->name('logout');
 
-Route::resource('user-account', UserAccountController::class)->only(['index', 'edit', 'update', 'create', 'store', 'destroy']);
+Route::resource('user-account', UserAccountController::class)->only(['index', 'edit', 'create', 'store', 'destroy']);
+Route::post('user-account/{user_account}', [UserAccountController::class, 'update'])->name('user-account.update');
 
 Route::resource('blog-post', PostController::class)->only(['index', 'create', 'store', 'show'])->middleware('auth');
 

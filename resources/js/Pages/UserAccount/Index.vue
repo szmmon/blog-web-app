@@ -6,9 +6,8 @@
                     <th scope="col" class="px-6 py-3" >#</th>
                     <th scope="col" class="px-6 py-3" >Username</th>
                     <th scope="col" class="px-6 py-3" >Email</th>
-                    <th scope="col" class="px-6 py-3">
-                    <span class="sr-only"></span>
-                    </th>
+                    <th scope="col" class="px-6 py-3" >Role </th>
+                    <th scope="col" class="px-6 py-3"></th>
                     
                 </tr>
             </thead>
@@ -22,6 +21,10 @@
                 </td>
                 <td class="px-6 py-4">
                     {{user.email}}
+                </td>
+                <td class="px-6 py-4">
+                    <span v-if="user.is_admin == 'Admin'">Admin</span>
+                    <span v-else>User</span>
                 </td>
                 <td class="flex justify-end px-6 py-4 text-right gap-2">
                     <a :href="route('user-account.edit', {user_account: user})" class="font-medium text-lg text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-regular fa-pen-to-square"></i></a>

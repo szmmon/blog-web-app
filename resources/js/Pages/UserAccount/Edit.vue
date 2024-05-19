@@ -12,6 +12,14 @@
                 <div class="input-error" v-if="form.errors.email">{{ form.errors.email }}</div>
             </div>
             <div class="mt-3">
+                <label class="label" for="is_admin">Edit Role</label>
+                <select  id="is_admin" class="input" v-model="form.is_admin">
+                    <option>User</option>
+                    <option>Admin</option>
+                </select>
+                <div class="input-error" v-if="form.errors.is_admin">{{ form.errors.is_admin }}</div>
+            </div>
+            <div class="mt-3">
                 <button class="button-primary w-full" type="submit">Edit Account</button>
             </div>
         </div>
@@ -27,7 +35,8 @@ const props = defineProps({
 
 const form = useForm({
     name: props.user.name,
-    email: props.user.email
+    email: props.user.email,
+    is_admin: props.user.is_admin
 })
-const update = () => form.put(route('user-account.update', {user_account: props.user}));
+const update = () => form.post(route('user-account.update', {user_account: props.user}));
 </script>
