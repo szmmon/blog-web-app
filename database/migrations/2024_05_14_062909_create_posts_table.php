@@ -20,7 +20,8 @@ return new class extends Migration
             $table->foreignIdFor(
                 User::class,
                 'user_id'
-            )->constrained('users');
+            )->constrained('users')
+            ->onDelete('cascade');
         });
     }
 

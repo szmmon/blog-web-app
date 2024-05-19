@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="register">
-        <div class="w-1/2 mx-auto mx-auto overflow-x-auto shadow-md">
+        <div class="w-1/2 mx-auto">
             <div>
                 <label class="label" for="name">Your name</label>
                 <input type="text" id="name" class="input" v-model="form.name"/>
