@@ -8,17 +8,17 @@
         </div>
 
         <div v-if="hasComments" class="mt-3">
-            <div class="mt-2 mb-1 font-bold text-xl">Comments:</div>
+            <div class="mt-2 mb-1 font-bold text-xl dark:text-gray-300">Comments:</div>
             <Comment v-for="comment in post.comments" :key="comment.id" :comment="comment" class="mb-3"/>
         </div>
         <div v-else class="mt-3">
-            <div class="mt-2 mb-1 font-bold text-xl">No comments yet</div>
+            <div class="mt-2 mb-1 font-bold text-xl dark:text-gray-300">No comments yet</div>
         </div>
 
         <form @submit.prevent="blogPostCommentStore" class="border-gray-500 bg-slate-300 dark:bg-gray-700 pt-4 px-10 pb-6 rounded-md mt-3">
          <div>
             <label class="label" for="body">Add new comment</label>
-            <input type="text" id="body" class="input" placeholder="Comment message" v-model="form.body"/>
+            <input type="text" id="body" class="input dark:bg-gray-800" placeholder="Comment message" v-model="form.body"/>
             <div class="input-error" v-if="form.errors.body">{{ form.errors.body }}</div>
         </div>
         <div class="mt-3 flex items-center justify-center font-normal">

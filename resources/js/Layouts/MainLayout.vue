@@ -1,5 +1,5 @@
 <template>
-    <header class="border-b  bg-slate-300 dark:border-gray-700 dark:bg-cyan-950 w-full">
+    <header class="border-b  bg-slate-300 dark:border-gray-700 dark:bg-stone-800 w-full">
         <div class="container mx-auto ">
             <nav class="p-4 flex items-center justify-between">
                 <div class="font-medium sm:text-sm md:text-lg dark:text-gray-100">

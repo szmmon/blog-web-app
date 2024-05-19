@@ -10,6 +10,11 @@
                 <label class="label" for="image">Add image</label>
                 <input type="file" multiple name="images[]" @input="addFiles" class="input" placeholder="Input post image" />
                 </div>
+            <div>
+                <label class="label" for="title">Image title</label>
+                <input type="text" id="title" class="input" placeholder="Input image title" v-model="form.title"/>
+                <div class="input-error" v-if="form.errors.title">{{ form.errors.title }}</div>
+            </div>
 
             <div class="mt-5 flex flex-col justify-center items-center">
                 <button class="button-primary w-full mb-3 disabled:opacity-25 disabled:cursor-not-allowed" type="submit" :disabled="!canUpload">Add images</button> 
@@ -30,6 +35,7 @@ const props = defineProps({
 
 const form = useForm({
   images: [],
+  title: null
 })
 const upload = () => {
   form.post(

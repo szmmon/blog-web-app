@@ -1,5 +1,5 @@
 <template>
-    <div class="border border-gray-400 dark:border-gray-700 rounded-md p-4 shadow-sm  text-gray-500 dark:text-gray-300 dark:bg-gray-600" >
+    <div class="border border-gray-400 dark:border-gray-700 rounded-md p-4 shadow-sm  text-gray-500 dark:text-gray-300 dark:bg-gray-700" >
             <div class="border-b border-gray-300 dark:border-gray-700">
                 <Link :href="route('blog-post.show', { blog_post : blogPost.id })" class="text-lg text-bold p-1 px-3 font-semibold hover:cursor-pointer text-gray-800 dark:text-gray-300">
                     {{ blogPost.title }}

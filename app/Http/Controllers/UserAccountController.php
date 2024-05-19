@@ -51,6 +51,6 @@ class UserAccountController extends Controller
         ]));
         Auth::login($user);
 
-        return redirect()->route('index')->with('success', 'Account created');
+        return redirect()->route('blog-post.index')->with('success', 'Account created');
     }
 }

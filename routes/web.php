@@ -26,5 +26,7 @@ Route::delete('blog-post-comment/{comment}', [PostCommentController::class, 'des
 
 
 Route::get('blog-post/{blog_post}/image' , [PostImageController::class, 'create'])->name('blog-post.image.create');
+Route::get('blog-post/{blog_post}/{image}/edit' , [PostImageController::class, 'edit'])->name('blog-post.image.edit');
 Route::post('blog-post/{blog_post}/image' , [PostImageController::class, 'store'])->name('blog-post.image.store');
+Route::post('blog-post/blog_post/{image}/edit' , [PostImageController::class, 'update'])->name('blog-post.image.update');
 Route::delete('blog-post/{blog_post}/{image}' , [PostImageController::class, 'destroy'])->name('blog-post.image.destroy');

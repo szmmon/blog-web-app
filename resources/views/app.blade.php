@@ -15,7 +15,7 @@
         
 
     </head>
-    <body class="dark:bg-zinc-500">
+    <body class="dark:bg-neutral-900">
         @inertia
     </body>
 </html>
