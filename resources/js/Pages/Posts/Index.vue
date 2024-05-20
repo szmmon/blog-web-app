@@ -1,6 +1,6 @@
 <template>
     <div class="w-3/4 mx-auto">
-        <BlogPost v-for="post in blogPosts" :key="post.id" :blogPost="post" class="my-3" :href="route('blog-post.show', { blog_post : post })">
+        <BlogPost v-for="post in blogPosts" :key="post.id" :blogPost="post"  class="my-3" :href="route('blog-post.show', { blog_post : post })">
         </BlogPost>
     </div>
 </template>

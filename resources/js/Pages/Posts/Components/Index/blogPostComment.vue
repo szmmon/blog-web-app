@@ -13,7 +13,7 @@
                 <div class="flex items-center gap-2 text-xs justify-end" >
                     <div>Comment ID: {{ comment.id }}</div>
                     <div>Created at: {{ date }}  </div>
-                    <div >Author ID: {{ comment.id }}  </div>
+                    <div >Author ID: {{ comment.user_id }}  </div>
                 </div>
             </div>
     </div>

@@ -7,7 +7,7 @@
             >
                 <img :src="image.src" class="aspect-[4/3] object-cover" />
                 <div class="mx-auto font-semibold text-md">{{ image.title }}</div>
-                <Link 
+                <Link v-if="user.id == props.blogPost.owner.id || user.is_admin == 'Admin'" 
                 :href="route('blog-post.image.destroy', {blog_post: props.blogPost.id, image: image.id})"
                 as="button"
                 method="delete"
@@ -15,7 +15,7 @@
                 >
                 Delete
                 </Link>
-                <Link 
+                <Link v-if="user.id == props.blogPost.owner.id || user.is_admin == 'Admin'" 
                 :href="route('blog-post.image.edit', {blog_post: props.blogPost.id, image: image.id})"
                 as="button"
                 class="mt-1 btn-normal text-xs w-full"
@@ -29,7 +29,10 @@
 
 <script setup>
 import { computed } from 'vue'
-import { Link } from '@inertiajs/vue3'
+import { Link, usePage } from '@inertiajs/vue3'
+
+const page = usePage();
+const user = computed(() => page.props.user);
 
 const props = defineProps({
     blogPost: Object,

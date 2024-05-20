@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         return inertia('Posts/Index',
-        ['blogPosts' => Post::withCount('comments')->get(),
+        ['blogPosts' => Post::withCount('comments', 'images')->get(),
         ]
         );
     }
